@@ -32,6 +32,7 @@ jobs:
         run: yarn build
 
       - name: Deploy
-        run: yarn deploy
+        run: |
+          gh-pages -d dist --repo "https://${GH_TOKEN}@github.com/${{ github.repository }}.git"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
